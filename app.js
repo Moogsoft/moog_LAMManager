@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var confedit = require('./routes/confedit');
-var botedit = require('./routes/botedit');
+var editor = require('./routes/editor');
 
 var app = express();
 
@@ -23,8 +22,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/confedit', confedit);
-app.use('/botedit', botedit);
+app.use('/editor', editor);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

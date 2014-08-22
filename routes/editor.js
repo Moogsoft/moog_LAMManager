@@ -7,7 +7,7 @@ editFile.name = "file name passed";
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('editFile', { title: 'File Editor', file: editFile });
+  res.render('editor', { title: 'File Editor', file: editFile });
 });
 
 module.exports = router;
