@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p List of LAMs
+   ul
+    each lam, i in lamlist
+        li
+           | #{lam.name} - Config:
+           a(href='/confedit?#{lam.config}') #{lam.config}
+           |  OR Bot:
+           a(href='/botedit?#{lam.bot}') #{lam.bot}
+
+  p List of Configs
+    ul
+        each conf, i in conflist
+            li
+                | #{conf.name} - Config:
+                a(href='/confedit?#{conf.config}') #{conf.config}

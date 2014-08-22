@@ -1,0 +1,79 @@
+doctype html
+html(lang='en')
+  head
+    title ACE in Action
+    style(type='text/css', media='screen').
+      #editor1 {
+      position: absolute;
+      top: 50px;
+      left: 0px;
+      width: 400px;
+      height: 200px;
+      }
+      #editor2 {
+      position: relative;
+      top: 300px;
+      left: 0px;
+      width: 400px;
+      height: 200px;
+      }
+  body
+    p test with para above
+    #editor1
+      |  #                                                           *
+      |  #  You have been warned....so be good for goodness sake...  #
+      |  #                                                           #
+      |  #############################################################
+      |      #
+      |  # Configuration for the moog_farmd app
+      |  #
+      |  {
+      |      config :
+      |      {
+      |          # threads:
+      |          # How many moolet threads - and moobots
+      |              # moobot_optimization:
+      |          # Optimization level to use for moobots
+      |          #  -1 => moobots will be interpreted
+      |          #   0 - 9 => moobots will be precompiled
+      |          #   0 => minimal opimization
+      |          #   9 => maximum opimization
+      |          # For more detail see:
+      |          # https://developer.mozilla.org/en/docs/Rhino/Optimization
+      |          #
+      |          threads : 10,
+      |          moobot_optimization : 0,
+      |              # alert_threshold:
+      |          # Increasing alert_threshold reduces the total number of SIGs.
+      |          #
+      |          # sig_similarity_limit:
+      |          # Reducing similarity index will, in general, reduce the total number
+      |          # of SIGs produced.
+      |          # Smaller values increase the likelihood of SIGs being merged together.
+      |          # < 0.5 not recommended, default 0.7
+      |          #
+      |          sig_resolution :
+      |          {
+      |              alert_threshold      : 5,
+      |              sig_similarity_limit : 0.5
+      |          },
+      |              moolets : [
+      |                  {
+      |                      name            : "AlertBuilder",
+      |                      classname       : "CAlertBuilder",
+      |                      run_on_startup  : true,
+      |                      moobot          : "AlertBuilder.js",
+      |                          #
+    #editor2
+      |// This is Javascript
+      |var editor1 = ace.edit("editor1");
+      |  editor1.setTheme("ace/theme/clouds");
+      |  editor1.getSession().setMode("ace/mode/mooconf");
+    script(src='/ace/ace.js', type='text/javascript', charset='utf-8')
+    script.
+      var editor1 = ace.edit("editor1");
+      editor1.setTheme("ace/theme/clouds");
+      editor1.getSession().setMode("ace/mode/mooconf");
+      var editor2 = ace.edit("editor2");
+      editor2.setTheme("ace/theme/monokai");
+      editor2.getSession().setMode("ace/mode/javascript");

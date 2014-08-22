@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  p Editor for #{file.name}
+  #editor
+
+  script(src='/ace/ace.js', type='text/javascript', charset='utf-8')
+  script.
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+
+
+
