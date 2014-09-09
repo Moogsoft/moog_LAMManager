@@ -2,18 +2,14 @@ extends layout
 
 block content
   h1= title
-  p List of LAMs
+  p List of Moobots
    ul
-    each lam, i in lamlist
+    each bot, i in botList
         li
-           | #{lam.name} - Config:
-           a(href='/editor?#{lam.config}') #{lam.config}
-           |  OR Bot:
-           a(href='/editor?#{lam.bot}') #{lam.bot}
+           a(href='/editor?file=moobots/#{bot}') #{bot}
 
   p List of Configs
-    ul
-        each conf, i in conflist
-            li
-                | #{conf.name} - Config:
-                a(href='/editor?#{conf.config}') #{conf.config}
+   ul
+    each conf, i in confList
+        li
+           a(href='/editor?file=config/#{conf}') #{conf}
