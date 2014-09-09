@@ -2,14 +2,67 @@ extends layout
 
 block content
   h1= title
-  p Editor for #{file.name}
+  #buttons
+    button(type='submit' onclick='saveFile();') Save
+    button(type='back' onclick='cancelFile();') Cancel
+    //button(type='submit' onclick='saveAndRestart();') Save & Restart
   #editor
+  #myDiv
 
   script(src='/ace/ace.js', type='text/javascript', charset='utf-8')
-  script.
+  script(type='text/javascript', charset='utf-8').
+    var fileContent = !{JSON.stringify(editFile)};
+    //alert(fileContent);
+    var fileName = '!{title}';
+    var type = fileName.split('.').pop();
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
-    editor.getSession().setMode("ace/mode/javascript");
-
-
+    //alert(type);
+    if (type == 'js'){
+      editor.getSession().setMode("ace/mode/javascript");
+    } else if (type == 'conf'){
+      editor.getSession().setMode("ace/mode/mooconf");
+    }
+    editor.setShowPrintMargin(false);
+    editor.setValue(fileContent);
+    //console.log(fileContent);
+    function saveFile() {
+      var postFile = encodeURIComponent(editor.getValue());
+      postDoc("postFile="+postFile);
+      window.history.back();
+    }
+    function cancelFile() {
+        window.history.back();
+    }
+    function saveAndRestart() {
+     var editor = ace.edit("editor");
+     //alert('Save and restart');
+     //alert(editor.getValue());
+      var postFile = encodeURIComponent(editor.getValue());
+      postDoc("postFile="+postFile);
+    }
+    function postDoc(doc)
+    {
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+      {// code for IE7+, Firefox, Chrome, Opera, Safari
+      xmlhttp=new XMLHttpRequest();
+      }
+    else
+      {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+      }
+    xmlhttp.onreadystatechange=function()
+      {
+      if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+        //alert(JSON.stringify(xmlhttp));
+        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+        }
+      }
+    xmlhttp.open("POST","/editor",true);
+    //xmlhttp.setRequestHeader("Content-type","application/json");
+    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xmlhttp.send(doc);
+    }
 
