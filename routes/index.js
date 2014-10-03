@@ -15,7 +15,7 @@ console.log(botDir);
 var confFiles = fs.readdirSync(configDir);
 var botFiles = fs.readdirSync(botDir);
 
-console.log(botFiles);
+//console.log(botFiles);
 
 
 /* GET home page. */
