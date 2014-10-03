@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res, next) {
     var saveFile = req.body.postFile;
     console.log('Got Data');
-    console.log(saveFile);
+    //console.log(saveFile);
     try {
         fs.writeFileSync(fileName,saveFile);
         console.log('File saved');
