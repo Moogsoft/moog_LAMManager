@@ -16,44 +16,45 @@ app.set('view engine', 'jade');
 
 app.use(favicon());
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.use('/', routes);
 app.use('/editor', editor);
+//app.post('/editor', editor);
 
+/// error handlers
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
+app.use(logErrors);
+app.use(clientErrorHandler);
+app.use(errorHandler);
 
-/// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
-        res.status(err.status || 500);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
-    });
+function logErrors(err, req, res, next) {
+    console.log('Error stack '+err.status+' '+err.message);
+    console.log(req.body);
+    console.error(err.stack);
+    next(err);
 }
 
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        error: {}
-    });
-});
+function clientErrorHandler(err, req, res, next) {
+    console.log('Client stack');
+    if (req.xhr) {
+        res.status(500).send({ error: 'Something blew up!' });
+    } else {
+        next(err);
+    }
+}
 
+function errorHandler(err, req, res, next) {
+    console.log('Render stack');
+    res.status(500);
+    res.render('error', { error: err });
+}
 
 module.exports = app;

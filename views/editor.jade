@@ -2,20 +2,23 @@ extends layout
 
 block content
   h1= title
+  #msgContainer
+    #msgDiv
   #buttons
-    button(type='submit' onclick='saveFile();') Save
-    button(type='back' onclick='cancelFile();') Cancel
+    button(type='submit' id='save' class="myButton" disabled=true onclick='saveFile();') Save
+    button(type='back' id='cancel' class="myButton" onclick='cancelFile();') Cancel
     //button(type='submit' onclick='saveAndRestart();') Save & Restart
   #editor
-  #myDiv
 
   script(src='/ace/ace.js', type='text/javascript', charset='utf-8')
   script(type='text/javascript', charset='utf-8').
     //build with file
     var fileContent = !{JSON.stringify(editFile)};
-    var fileName = '!{title}';
+    var title = '!{title}';
+    var fileName = title.split('/').pop();
     var type = fileName.split('.').pop();
     var editor = ace.edit("editor");
+
     editor.setTheme("ace/theme/monokai");
     if (type == 'js'){
       editor.getSession().setMode("ace/mode/javascript");
@@ -25,20 +28,34 @@ block content
     editor.setShowPrintMargin(false);
     editor.setValue(fileContent);
     //console.log(fileContent);
+    editor.on('input', function() {
+    if (editor.session.getUndoManager().isClean())
+        document.getElementById("save").disabled = true;
+    else
+        document.getElementById("save").disabled = false;
+        document.getElementById("msgDiv").innerHTML='Unsaved Changes';
+    });
+    window.onload = function(e) {
+        document.getElementById("save").disabled = true;
+        document.getElementById("msgDiv").innerHTML='';
+    };
+
     function saveFile() {
-      var postFile = editor.getValue();
-      postDoc("postFile="+postFile);
-      window.history.back();
+      var post = {};
+      post.postFile = editor.getValue();
+      post.fileName = fileName;
+      postDoc(post);
     }
+
     function cancelFile() {
         window.history.back();
     }
+
     function saveAndRestart() {
-     var editor = ace.edit("editor");
-     //alert('Save and restart');
-     //alert(editor.getValue());
-      var postFile = editor.getValue();
-      postDoc("postFile="+postFile);
+      var post = {};
+      post.postFile = editor.getValue();
+      post.fileName = fileName;
+      postDoc(post);
     }
     function postDoc(doc)
     {
@@ -56,12 +73,13 @@ block content
       if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
         //alert(JSON.stringify(xmlhttp));
-        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+        document.getElementById("msgDiv").innerHTML=xmlhttp.responseText;
+        editor.session.getUndoManager().markClean();
+        document.getElementById("save").disabled = true;
+        editor.focus();
         }
-      }
-    xmlhttp.open("POST","/editor",true);
-    //xmlhttp.setRequestHeader("Content-type","application/json");
-    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    xmlhttp.send(doc);
+      };
+      xmlhttp.open("POST","/editor",true);
+      xmlhttp.setRequestHeader("Content-type","application/json");
+      xmlhttp.send(JSON.stringify(doc));
     }
-

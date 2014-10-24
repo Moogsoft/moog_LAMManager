@@ -1,0 +1,590 @@
+[[
+   "start",
+  ["variable","test"],
+  ["text",": comments "],
+  ["constant.numeric","1"]
+],[
+   "start",
+  ["comment","#############################################################"]
+],[
+   "start",
+  ["variable","test"],
+  ["text",": comments "],
+  ["constant.numeric","2"]
+],[
+   "start",
+  ["comment","#                                                           #"]
+],[
+   "start",
+  ["variable","test"],
+  ["text",": comments "],
+  ["constant.numeric","3"]
+],[
+   "start",
+  ["comment","#  Contents of file Copyright (c) Moogsoft Inc 2010         #"]
+],[
+   "start",
+  ["variable","test"],
+  ["text",": comments "],
+  ["constant.numeric","4"]
+],[
+   "start",
+  ["comment","#------------------------------------------------------------"]
+],[
+   "start",
+  ["comment","# Essential configuration for the socket lam"]
+],[
+   "start",
+  ["comment","#------------------------------------------------------------"]
+],[
+   "start",
+  ["variable","test"],
+  ["text",": comment "],
+  ["constant.numeric","5"],
+  ["text"," with object chars"]
+],[
+   "start",
+  ["text","        "],
+  ["comment","#         pattern : \"(?mU)^(.*)\\t(.*)\\t(.*)$\","]
+],[
+   "start"
+],[
+   "start",
+  ["text","        "],
+  ["variable","variables"],
+  ["text",":"]
+],[
+   "start",
+  ["text","        "],
+  ["paren.lparen","["]
+],[
+   "start",
+  ["text","            "],
+  ["comment","#"]
+],[
+   "start",
+  ["text","            "],
+  ["comment","# Note that positions start at 1, and go up"]
+],[
+   "start",
+  ["text","            "],
+  ["comment","# rather than array index style counting from zero"]
+],[
+   "start",
+  ["text","            "],
+  ["comment","#"]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"Identifier\""],
+  ["text",",   "],
+  ["variable","position"],
+  ["text",": "],
+  ["constant.numeric","1"],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"Node\""],
+  ["text",",         "],
+  ["variable","position"],
+  ["text",": "],
+  ["constant.numeric","2"],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"Serial\""],
+  ["text",",       "],
+  ["variable","position"],
+  ["text",": "],
+  ["constant.numeric","3"],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"LastOccurrence\""],
+  ["text",","],
+  ["variable","position"],
+  ["text",": "],
+  ["constant.numeric","11"],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"InternalLast\""],
+  ["text",", "],
+  ["variable","position"],
+  ["text",": "],
+  ["constant.numeric","12"],
+  ["text"," "],
+  ["paren.rparen","}"]
+],[
+   "start",
+  ["text","        "],
+  ["paren.rparen","]"],
+  ["text",","]
+],[
+   "start",
+  ["text","        "],
+  ["variable","constants"],
+  ["text",":"]
+],[
+   "start",
+  ["text","        "],
+  ["paren.lparen","{"]
+],[
+   "start",
+  ["text","            "],
+  ["variable","severity"],
+  ["text",":"]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","{"]
+],[
+   "start",
+  ["text","                "],
+  ["variable","\"CLEAR\"         "],
+  ["text",": "],
+  ["constant.numeric","0"],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","\"INDETERMINATE\" "],
+  ["text",": "],
+  ["constant.numeric","1"],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","\"WARNING\"       "],
+  ["text",": "],
+  ["constant.numeric","2"],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","\"MINOR\"         "],
+  ["text",": "],
+  ["constant.numeric","3"],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","\"MAJOR\"         "],
+  ["text",": "],
+  ["constant.numeric","4"],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","\"CRITICAL\"      "],
+  ["text",": "],
+  ["constant.numeric","5"]
+],[
+   "start",
+  ["text","            "],
+  ["paren.rparen","}"]
+],[
+   "start",
+  ["text","        "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","        "],
+  ["variable","conversions"],
+  ["text",":"]
+],[
+   "start",
+  ["text","        "],
+  ["paren.lparen","{"]
+],[
+   "start",
+  ["text","            "],
+  ["variable","sevConverter"],
+  ["text",":"]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","{"]
+],[
+   "start",
+  ["text","                "],
+  ["variable","lookup"],
+  ["text",": "],
+  ["string","\"severity\""],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","input"],
+  ["text",":  "],
+  ["string","\"STRING\""],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","output"],
+  ["text",": "],
+  ["string","\"INTEGER\""]
+],[
+   "start",
+  ["text","            "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","            "],
+  ["variable","timeConverter"],
+  ["text",":"]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","{"]
+],[
+   "start",
+  ["text","                "],
+  ["variable","timeFormat"],
+  ["text",": "],
+  ["string","\"%D %T\""],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","input"],
+  ["text",":      "],
+  ["string","\"STRING\""],
+  ["text",","]
+],[
+   "start",
+  ["text","                "],
+  ["variable","output"],
+  ["text",":     "],
+  ["string","\"INTEGER\""]
+],[
+   "start",
+  ["text","            "],
+  ["paren.rparen","}"]
+],[
+   "start",
+  ["text","        "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t    "],
+  ["comment","#---------------------------------------------"]
+],[
+   "start",
+  ["text","\t    "],
+  ["comment","# Describe how parsed parameters get mapped"]
+],[
+   "start",
+  ["text","\t    "],
+  ["comment","# to alert fields"]
+],[
+   "start",
+  ["text","\t    "],
+  ["comment","#---------------------------------------------"]
+],[
+   "start",
+  ["text","\t    "],
+  ["variable","mapping "],
+  ["text",":"]
+],[
+   "start",
+  ["text","\t    "],
+  ["paren.lparen","{"]
+],[
+   "start",
+  ["text","            "],
+  ["variable","catchAll"],
+  ["text",": "],
+  ["string","\"overflow\""],
+  ["text",","]
+],[
+   "start",
+  ["text","            "],
+  ["variable","rules"],
+  ["text",":"]
+],[
+   "start",
+  ["text","            "],
+  ["paren.lparen","["]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"signature\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":    \t"],
+  ["string","\"$Identifier\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"source_id\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":    \t"],
+  ["string","\"$Node\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"external_id\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":  \t"],
+  ["string","\"$Serial\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"manager\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":      \t"],
+  ["string","\"$Manager\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"source\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":       \t"],
+  ["string","\"$Node\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"class\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":        \t"],
+  ["string","\"$Class\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"agent\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":        \t"],
+  ["string","\"$LamInstanceName\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"agent_location\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":  "],
+  ["string","\"$ProbeHostName\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"type\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":\t        "],
+  ["string","\"$AlertGroup\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"severity\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":\t    "],
+  ["string","\"$Severity\""],
+  ["text",",        "],
+  ["variable","conversion"],
+  ["text",": "],
+  ["string","\"sevConverter\""],
+  ["text","  "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"description\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":\t    "],
+  ["string","\"$Summary\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"first_occurred\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":  "],
+  ["string","\"$LastOccurrence\""],
+  ["text",",  "],
+  ["variable","conversion"],
+  ["text",": "],
+  ["string","\"timeConverter\""],
+  ["text"," "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","\t\t        "],
+  ["paren.lparen","{"],
+  ["text"," "],
+  ["variable","name"],
+  ["text",": "],
+  ["string","\"agent_time\""],
+  ["text",","],
+  ["variable","rule"],
+  ["text",":\t    "],
+  ["string","\"$InternalLast\""],
+  ["text",",    "],
+  ["variable","conversion"],
+  ["text",": "],
+  ["string","\"timeConverter\""],
+  ["text"," "],
+  ["paren.rparen","}"]
+],[
+   "start",
+  ["text","            "],
+  ["paren.rparen","]"]
+],[
+   "start",
+  ["text","\t    "],
+  ["paren.rparen","}"],
+  ["text",","]
+],[
+   "start",
+  ["text","        "],
+  ["variable","filter"],
+  ["text",":"]
+],[
+   "start",
+  ["text","        "],
+  ["paren.lparen","{"]
+],[
+   "start",
+  ["text","            "],
+  ["variable","presend"],
+  ["text",": "],
+  ["string","\"SocketLam.js\""]
+],[
+   "start",
+  ["text","        "],
+  ["paren.rparen","}"]
+],[
+   "start"
+],[
+   "start",
+  ["text","\t"],
+  ["paren.rparen","}"]
+],[
+   "start",
+  ["paren.rparen","}"]
+],[
+   "start"
+]]
