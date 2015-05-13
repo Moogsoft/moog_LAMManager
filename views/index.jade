@@ -4,9 +4,15 @@ block content
   h1= title
   p List of Moobots
    ul
-    each bot, i in botList
+    each mBot, i in mooBotList
         li
-           a(href='/editor?file=moobots/#{bot}') #{bot}
+           a(href='/editor?file=bots/moobots/#{mBot}') #{mBot}
+
+  p List of LAMbots
+    ul
+        each lBot, i in lamBotList
+            li
+                a(href='/editor?file=bots/lambots/#{lBot}') #{lBot}
 
   p List of Configs
    ul

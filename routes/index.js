@@ -8,19 +8,21 @@ if (!process.env.MOOGSOFT_HOME) {
     //process.env.MOOGSOFT_HOME = './test';
 }
 var configDir = process.env.MOOGSOFT_HOME+"/config/";
-var botDir = process.env.MOOGSOFT_HOME+"/moobots/";
+var mooBotDir = process.env.MOOGSOFT_HOME+"/bots/moobots";
+var lamBotDir = process.env.MOOGSOFT_HOME+"/bots/lambots";
 //var initDir = "/etc/init.d/";
 
 console.log('Reading: '+configDir);
 var confFiles = fs.readdirSync(configDir);
-console.log('Reading: '+botDir);
-var botFiles = fs.readdirSync(botDir);
-
+console.log('Reading: '+mooBotDir);
+var mooBotFiles = fs.readdirSync(mooBotDir);
+console.log('Reading: '+lamBotDir);
+var lamBotFiles = fs.readdirSync(lamBotDir);
 //console.log(botFiles);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Configs and Moobots', botList: botFiles, confList: confFiles });
+    res.render('index', { title: 'Configs and Moobots', mooBotList: mooBotFiles, lamBotList: lamBotFiles, confList: confFiles });
     res.end();
 });
 
