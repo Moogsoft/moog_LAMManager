@@ -13,12 +13,27 @@ var lamBotDir = process.env.MOOGSOFT_HOME+"/bots/lambots";
 //var initDir = "/etc/init.d/";
 
 console.log('Reading: '+configDir);
-var confFiles = fs.readdirSync(configDir);
+try {
+    var confFiles = fs.readdirSync(configDir);
+} catch(e) {
+    console.log('Config directory error '+e.code);
+    confFiles = '';
+}
+
 console.log('Reading: '+mooBotDir);
-var mooBotFiles = fs.readdirSync(mooBotDir);
+try {
+    var mooBotFiles = fs.readdirSync(mooBotDir);
+} catch(e) {
+    console.log('Moobot directory error '+e.code);
+    mooBotFiles = '';
+}
 console.log('Reading: '+lamBotDir);
-var lamBotFiles = fs.readdirSync(lamBotDir);
-//console.log(botFiles);
+try {
+    var lamBotFiles = fs.readdirSync(lamBotDir);
+} catch(e) {
+    console.log('Lambot directory error '+e.code);
+    lamBotFiles = '';
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
