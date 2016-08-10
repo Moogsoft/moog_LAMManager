@@ -6,16 +6,16 @@ block content
    ul
     each mBot, i in mooBotList
         li
-           a(href='/editor?file=bots/moobots/#{mBot}') #{mBot}
+           a(href='/editor?file=bots/moobots/'+mBot) #{mBot}
 
   p List of LAMbots
     ul
         each lBot, i in lamBotList
             li
-                a(href='/editor?file=bots/lambots/#{lBot}') #{lBot}
+                a(href='/editor?file=bots/lambots/'+lBot) #{lBot}
 
   p List of Configs
    ul
     each conf, i in confList
         li
-           a(href='/editor?file=config/#{conf}') #{conf}
+           a(href='/editor?file=config/'+conf) #{conf}

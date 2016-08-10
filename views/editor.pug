@@ -32,8 +32,8 @@ block content
     if (editor.session.getUndoManager().isClean())
         document.getElementById("save").disabled = true;
     else
-        document.getElementById("save").disabled = false;
-        document.getElementById("msgDiv").innerHTML='Unsaved Changes';
+      document.getElementById("msgDiv").innerHTML = 'Unsaved Changes';
+      document.getElementById("save").disabled = false;
     });
     window.onload = function(e) {
         document.getElementById("save").disabled = true;
@@ -58,6 +58,7 @@ block content
       postDoc(post);
     }
     function postDoc(doc)
+    // Maybe use socket.io rather than Ajax?
     {
     var xmlhttp;
     if (window.XMLHttpRequest)
